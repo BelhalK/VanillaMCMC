@@ -2,7 +2,7 @@ import numpy,math
 import matplotlib.pyplot as plt
 import random as random
 
-random.seed(2)
+random.seed(1)
 
 # Draw random samples
 def sample(N, alpha, M_min, M_max):
