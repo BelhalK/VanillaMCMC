@@ -37,6 +37,7 @@ def mala_chain(niters, theta, target, sigma):
             samples.append(theta)
     return samples
 
+
 def ula_chain(niters, theta, target, sigma):
     samples = [theta]
     gamma = 0.01
@@ -51,6 +52,22 @@ def ula_chain(niters, theta, target, sigma):
     return samples
 
 
+def nesterov_chain(niters, theta, target, sigma):
+    samples = [theta]
+    gamma = 0.01
+    delta = 0.01
+    R = 0.01
+    while len(samples) < niters:
+        theta_1 = theta
+        theta_2 = theta_1 + delta
+        gradU = -(target.pdf(theta_2) - target.pdf(theta_1))/delta
+        theta_p = theta +gamma*gradU + R*(theta - theta[k-1]) + st.norm(0, sigma).rvs()
+        rho = min(1, target.pdf(theta_p)*st.norm(0, sigma).pdf(theta)/[st.norm(0, sigma).pdf(theta_p)*target.pdf(theta)])
+        u = np.random.uniform()
+        if u < rho:
+            theta = theta_p
+            samples.append(theta)
+    return samples
 
 ### Random Walk MH
 
