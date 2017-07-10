@@ -277,32 +277,4 @@ labelLines(plt.gca().get_lines(),zorder=2.5)
 plt.xlim([0, niters])
 plt.ylim([-0.2, 5]);
 
-###ULA vs ULA Hessian
-
-###ULA vs ULA Nesterov
-
-###ULA vs ULA FIM
-
-###ULA vs ULA by block
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

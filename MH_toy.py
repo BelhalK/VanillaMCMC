@@ -14,7 +14,7 @@ import numpy as np
 import pandas as pd
 import scipy.stats as st
 
-np.random.seed(1234)
+np.random.seed(12345)
 
 #Bayes rule
 def target(likelihood, prior, n, h, theta):
